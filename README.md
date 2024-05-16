@@ -1,1 +1,1 @@
-# Hello-Kello
+`$ docker-compose up --build`

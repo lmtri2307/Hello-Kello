@@ -1,0 +1,20 @@
+version: "1"
+services:
+  hello-service:
+    build:
+      context: ./hello
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+  kello-service:
+    build:
+      context: ./kello
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

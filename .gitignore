@@ -1,0 +1,23 @@
+# Logs
+logs
+*.log
+
+# Node.js
+node_modules/
+**/node_modules/
+
+# Build files
+build/
+dist/
+
+# Dependency directories
+.pnpm-store/
+.pnpm-workspace/
+.yarn/
+npm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
