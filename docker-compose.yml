@@ -1,13 +1,13 @@
 version: "1"
 services:
-  hello-service:
+  hello:
     build:
       context: ./hello
     ports:
       - "3000:3000"
     networks:
       - app-network
-  kello-service:
+  kello:
     build:
       context: ./kello
     ports:
