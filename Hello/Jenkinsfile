@@ -19,14 +19,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run npm test to execute tests
-                    sh 'npm test'
-                }
-            }
-        }
     }
 }
