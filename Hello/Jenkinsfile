@@ -9,8 +9,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Run npm install to install dependencies
+                   dir('Hello'){
                     sh 'npm install'
+                   }
                 }
             }
         }
@@ -18,8 +19,9 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Run npm test to execute tests
+                  dir('Hello'){
                     sh 'npm test'
+                  }
                 }
             }
         }
