@@ -30,8 +30,11 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials:['topdevs_clone']) {
-                       // Add the host key to known_hosts to avoid verification errors
-                        sh "ssh-keyscan -H 4.246.202.165 >> ~/.ssh/known_hosts"
+ // Ensure the .ssh directory exists and then add the host key to known_hosts
+                        sh """
+                        mkdir -p ~/.ssh
+                        ssh-keyscan -H 4.246.202.165 >> ~/.ssh/known_hosts
+                        """
 
                         // Deployment commands
                         sh """
