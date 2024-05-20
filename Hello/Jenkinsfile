@@ -38,7 +38,7 @@ pipeline {
 
                         // Deployment commands
                         sh """
-                        ssh azureuser@40.90.234.213 'mkdir -p /jenkin/Hello'
+                        ssh azureuser@40.90.234.213 'sudo mkdir -p /jenkin/Hello'
                         rsync -avz --delete --exclude="node_modules" ./ azureuser@40.90.234.213:/jenkin/Hello
                         ssh azureuser@40.90.234.213 'cd /jenkin/Hello && npm install && npm start'
                         """
