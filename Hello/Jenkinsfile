@@ -30,8 +30,12 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials:['topdevs_clone']) {
+                       // Add the host key to known_hosts to avoid verification errors
+                        sh "ssh-keyscan -H 4.246.202.165 >> ~/.ssh/known_hosts"
+
+                        // Deployment commands
                         sh """
-                        ssh azureuser@4.246.202.165 'mkdir -p /Hello'
+                        ssh azureuser@4.246.202.165 'mkdir -p /jenkin/Hello'
                         rsync -avz --delete --exclude="node_modules" ./ azureuser@4.246.202.165:/jenkin/Hello
                         ssh azureuser@4.246.202.165 'cd /jenkin/Hello && npm install && npm start'
                         """
