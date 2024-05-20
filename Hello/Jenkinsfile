@@ -29,8 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Define deployment steps
-                    sshagent(['topdevs_clone']) {
+                    sshagent(credentials:['topdevs_clone']) {
                         sh """
                         ssh azureuser@4.246.202.165 'mkdir -p /Hello'
                         rsync -avz --delete --exclude="node_modules" ./ azureuser@4.246.202.165:/jenkin/Hello
