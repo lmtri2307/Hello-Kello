@@ -25,5 +25,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Run Application') {
+            steps {
+                script {
+                  dir('Hello'){
+                    sh 'npm start'
+                  }
+                }
+            }
+        }
     }
 }
